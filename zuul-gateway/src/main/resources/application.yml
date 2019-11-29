@@ -1,0 +1,27 @@
+info:
+  component: Edge Server
+  
+zuul:
+  routes:
+    product:
+      stripPrefix: false
+      path: /api/v1/product/**
+      serviceId: product-service
+    stock:
+      stripPrefix: false 
+      path: /api/v1/stock/**
+      serviceId: stock-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+      
+server:
+  port: 8765
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
