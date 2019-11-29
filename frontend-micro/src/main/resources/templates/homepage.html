@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div>
+   <table id="productTable" class="table">
+     <thead>
+       <tr>
+         <th>Name</th>
+         <th>Price</th>
+         <th>Image</th>
+       </tr>
+     </thead>
+     <tbody>
+		<tr th:each="item, rowStat: ${productList}" th:style="${rowStat.odd} ? 'color: gray' : 'color: black;'">
+	            <td th:text="${item.name}">1</td>
+	        	<td th:text="${item.price}">price</td>
+	            <td>
+	            	<a th:href="@{'/product/' + ${item.productId}}">	<img th:src="@{'/images/'+ ${item.smallImageUrl}}" height="240px" width="240px"></img></a>
+	            </td>										
+		</tr>						      
+     </tbody>
+   </table>      							
+</div>
+</body>
+</html>
